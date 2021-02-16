@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Quiz App</title>
+    <script src="https://kit.fontawesome.com/ee032daa0e.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <script src="./js/auth.js"></script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div id="headerBox" class="header__box">
+            <div id="btnArrowBack">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+        </div>
+        <div id="headerUser" class="header__user">
+            <div id="btnDelete" class="header__btnDelete">
+                <i class="far fa-trash-alt"></i>
+                <p>Delete my data</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="home">
+        <div id="greetUser"></div>
+
+        <div id="askNameBox" class="invisible">
+            <h1>Let's know a little about you first</h1>
+            <p>What's your name?</p>
+            <input id="inputName" class="input" type="text">
+            <p id="inpuFeedback" class="inputName__feedback invisible">Sorry, if you prefer to continue anonymous, please click on the "Don't wanna tell" button</p>
+            <button id="btnNoUserName" class="btn--outline">Don't wanna tell</button>
+            <button id="btnSaveUserName" class="btn">Remember me</button>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p class="footer__txt">Made with <i class="fas fa-heart"></i> by Natalia Duran</p>
+        <ul class="footer__links">
+            <li><a href="#" class="footer__rrssIcon"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" class="footer__rrssIcon"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" class="footer__rrssIcon"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
