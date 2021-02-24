@@ -62,6 +62,10 @@ body {
   height: 90vh;
 }
 
+.quiz {
+  width: 35vw;
+}
+
 .quiz__question {
   font-weight: 800;
   font-size: 1.5rem;
@@ -91,6 +95,11 @@ body {
 .quiz__optionBtn:checked ~ .quiz__optionFrame .quiz__option {
   color: #9a0f98;
   border: 2px solid #9a0f98;
+}
+
+.result__gif {
+  width: 120px;
+  height: 120px;
 }
 
 /* ------------------ BUTTONS ------------------ */
@@ -208,5 +217,4 @@ body {
 .invisible {
   display: none;
 }
-
 

@@ -109,13 +109,14 @@ $(document).ready(function(){
         } else {
             inpuFeedback.show();
             inputName.on('keyup', () => inputName.val() ? inpuFeedback.hide() : inpuFeedback.show());
+            [ ]
         }
     }
     
     function gotoQuizWithoutName() {
         inputName.val('');
         window.location.href = "views/quiz.html";
-    }    
+    }   
   
 });
 
