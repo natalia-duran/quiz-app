@@ -1,8 +1,8 @@
 
 $(document).ready(function(){
-    console.log('Document is ready');
 
     // ------------------------------------ variables 
+    
     let currentUser;
     const greetUser = $('#greetUser');
     const headerBox = $('#headerBox');
@@ -30,9 +30,9 @@ $(document).ready(function(){
 
     // ------------------------------------ events
 
-    btnSaveUserName.on('click', gotoQuizWithName);
-    btnNoUserName.on('click', gotoQuizWithoutName);
-    btnArrowBack.on('click', gotoBackHome);
+    btnSaveUserName.on('click', goToQuizWithName);
+    btnNoUserName.on('click', goToQuizWithoutName);
+    btnArrowBack.on('click', goBackHome);
 
     // ------------------------------------ functions  
 
@@ -51,14 +51,14 @@ $(document).ready(function(){
         const btn = $('<button></button>').text(`Let's give it a shot!`); 
         btn.attr({
             'id' : 'btnAnonymous',
-            'class' : 'btn'
+            'class' : 'btn btn--large' 
         });
     
         domContainer.append(title);
         domContainer.append(subtitle);
         domContainer.append(btn);
 
-        btn.click(goToaskUserName);
+        btn.click(goToAskUserName);
         headerBox.hide();
         headerUser.hide();
     }
@@ -89,19 +89,19 @@ $(document).ready(function(){
 
     // ------------------------------------ AFTER PAGE HAS LOADED 
 
-    function goToaskUserName() {
-        greetUser.hide();
-        askNameBox.show();
+    function goToAskUserName() {
+        greetUser.fadeOut('fast');
+        askNameBox.fadeIn();
         headerBox.show();
     }
 
-    function gotoBackHome() {
-        greetUser.show();
-        askNameBox.hide();
+    function goBackHome() {
+        askNameBox.fadeOut('fast');
+        greetUser.fadeIn();
         headerBox.hide();
     }
     
-    function gotoQuizWithName() {
+    function goToQuizWithName() {
         if(inputName.val()) {
             currentUser = new User(inputName.val());
             window.localStorage.setItem('USER_DATA', JSON.stringify(currentUser));
@@ -109,11 +109,10 @@ $(document).ready(function(){
         } else {
             inpuFeedback.show();
             inputName.on('keyup', () => inputName.val() ? inpuFeedback.hide() : inpuFeedback.show());
-            [ ]
         }
     }
     
-    function gotoQuizWithoutName() {
+    function goToQuizWithoutName() {
         inputName.val('');
         window.location.href = "views/quiz.html";
     }   

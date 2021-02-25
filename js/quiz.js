@@ -1,12 +1,11 @@
 
 $(document).ready(function(){
-    console.log('Document is ready');
 
     // ---------------------------------- variables
 
+    const quiz = $('#quiz');
     const question = $('#question');
     const counterTxt = $('#counterTxt');
-    const radiosInputs = document.querySelectorAll('input[name="answer"]');
 
     const btnNext = $('#btnNext');
     const btnArrowBack = $('#btnArrowBack');
@@ -82,6 +81,7 @@ $(document).ready(function(){
             $(`#option${index} p`).length > 0 && $(`#option${index} p`).remove();
             $(`#option${index}`).append(p); 
         });
+        quiz.fadeIn('fast');
     }
 
     // ------------------------------------ FIRST LOAD 
@@ -96,29 +96,28 @@ $(document).ready(function(){
             evaluateAnswers();
             window.location.href = "result.html";
         } else {
-            saveAnswer(radiosInputs);
+            saveAnswer();
             printQuestion(questionsCounter);
         }
     }
 
-    function saveAnswer(answersArray) {
-        answersArray.forEach(answer => {
-            if(answer.checked) {
-                let selected = +answer.value;
-                switch(selected) {
-                    case 0:
-                        backendAnswers.push(selected);
-                        break;
-                    case 1:
-                        frontendAnswers.push(selected);
-                        break;
-                    case 2:
-                        fullstackAnswers.push(selected);
-                        break;
-                }
+    function saveAnswer() {
+        let selectedAnswer = $('input[name="answer"]:checked');
+        if(selectedAnswer) {
+            let selected = +selectedAnswer.val();
+            switch(selected) {
+                case 0:
+                    backendAnswers.push(selected);
+                    break;
+                case 1:
+                    frontendAnswers.push(selected);
+                    break;
+                case 2:
+                    fullstackAnswers.push(selected);
+                    break;
             }
-            answer.checked = false;
-        });
+        }
+        selectedAnswer.prop('checked', false);
     }
 
     function evaluateAnswers() {
