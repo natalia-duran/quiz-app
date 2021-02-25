@@ -6,6 +6,7 @@ $(document).ready(function(){
     const quiz = $('#quiz');
     const question = $('#question');
     const counterTxt = $('#counterTxt');
+    const inpuFeedback = $('#inpuFeedback');
 
     const btnNext = $('#btnNext');
     const btnArrowBack = $('#btnArrowBack');
@@ -91,13 +92,18 @@ $(document).ready(function(){
     // ------------------------------------ AFTER PAGE HAS LOADED 
 
     function nextQuestion() {
-        questionsCounter++;
-        if(questionsCounter > questions.length - 1) {
-            evaluateAnswers();
-            window.location.href = "result.html";
+        if(!$("input[name='answer']:checked").val()) {
+            inpuFeedback.show();
         } else {
-            saveAnswer();
-            printQuestion(questionsCounter);
+            inpuFeedback.hide();
+            questionsCounter++;
+            if(questionsCounter > questions.length - 1) {
+                evaluateAnswers();
+                window.location.href = "result.html";
+            } else {
+                saveAnswer();
+                printQuestion(questionsCounter);
+            }
         }
     }
 

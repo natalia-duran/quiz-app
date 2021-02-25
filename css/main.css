@@ -82,6 +82,11 @@ body {
 
 .quiz__optionFrame {
   display: block;
+  transition: .2s ease-out;
+}
+
+.quiz__optionFrame:hover {
+  transform: scale(1.1);
 }
 
 .quiz__option {
@@ -154,7 +159,7 @@ body {
   border: 2px solid #4b4b4b;
   border-radius: 5em;
   margin: 1.5rem 0;
-  margin-right: .7rem;
+  margin-right: .6rem;
   outline: none;
   cursor: pointer;
   transition: .2s ease-out;
