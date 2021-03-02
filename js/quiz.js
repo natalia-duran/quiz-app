@@ -3,6 +3,8 @@ $(document).ready(function(){
 
     // ---------------------------------- variables
 
+    const dataStored = JSON.parse(window.localStorage.getItem('USER_DATA'));
+
     const quiz = $('#quiz');
     const question = $('#question');
     const counterTxt = $('#counterTxt');
@@ -98,7 +100,7 @@ $(document).ready(function(){
             inpuFeedback.hide();
             questionsCounter++;
             if(questionsCounter > questions.length - 1) {
-                evaluateAnswers();
+                processResult(dataStored);
                 window.location.href = "result.html";
             } else {
                 saveAnswer();
@@ -126,18 +128,35 @@ $(document).ready(function(){
         selectedAnswer.prop('checked', false);
     }
 
-    function evaluateAnswers() {
+    function processResult(data) {
+        const result = getResult();
+        window.localStorage.setItem('RESULT', result);
+        data && checkDataStored(data, 'role', result);  
+    }
+
+    function getResult() {
         if(backendAnswers > frontendAnswers &&  backendAnswers > fullstackAnswers) {
-            window.localStorage.setItem('RESULT', 'Backend Developer');
+            return 'Backend Developer';
         } else if(frontendAnswers > fullstackAnswers) {
-            window.localStorage.setItem('RESULT', 'Frontend Developer');
+            return 'Frontend Developer';
         } else {
-            window.localStorage.setItem('RESULT', 'Fullstack Developer');
+            return 'Fullstack Developer';
         }
     }
-    
+
+     function checkDataStored(dataObj, keyName, updatedValue) {
+        const dataStored = JSON.parse(window.localStorage.getItem('USER_DATA'));
+        if(dataObj[keyName]) {
+            const dataAux = {...dataObj};
+            dataAux[keyName] = updatedValue;
+            window.localStorage.removeItem('USER_DATA');
+            window.localStorage.setItem('USER_DATA', JSON.stringify(dataAux));
+        } 
+    }
+
     function gotoBackHome() {
         window.history.back();
     }
+
 
 });

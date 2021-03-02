@@ -10,20 +10,37 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+  background-color:  transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #6a0572;
+  border-radius: 5px;
+}
+
+/* ------------------ HEADER ------------------ */
+
 .header {
   display: flex;
   align-items: center;
+  height: 15vh;
   padding: 0 3em;
-  height: 10vh;
+  position: relative;
 }
 
-.header__box {
+.header__left {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
 }
 
-.header__user {
+/* .header__user {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -42,6 +59,119 @@ body {
 
 .header__btnDelete p {
   margin-left: 7px;
+} */
+
+.header__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+/* ------------------ HEADER MORE OPTIONS MENU ------------------ */
+
+.header__btnMoreOptions {
+  background: #161822;
+  color: #4b4b4b;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px #070911, -3px -3px 3px #22262a;
+}
+
+.header__btnMoreOptions:hover {
+  box-shadow: inset 3px 3px 15px #070911, inset -2px -2px 3px #22262a;
+}
+
+.header__btnMoreOptions i {
+  font-size: 1rem;
+}
+
+.header__optionsContainer {
+  position: absolute;
+  top: 14vh;
+  right: 3em;
+  z-index: 2;
+}
+
+.header__optionswhiteShadow {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3) ;
+  position: absolute;
+  top: 2rem;
+  left: 4rem;
+  z-index: -2;
+}
+
+.header__optionsGlassEffect {
+  background: linear-gradient(to right bottom, rgba(105, 105, 105, 0.3), rgba(105, 105, 105, 0.1));
+  backdrop-filter: blur(20px);
+  color: #696969;
+  width: 16rem;
+  height: 19rem; 
+  border-radius: 5px;
+  box-shadow:
+    0 3.4px 2.7px rgba(0, 0, 0, 0.022),
+    0 8.7px 6.9px rgba(0, 0, 0, 0.031),
+    0 17.7px 14.2px rgba(0, 0, 0, 0.039),
+    0 36.5px 29.2px rgba(0, 0, 0, 0.048),
+    0 100px 80px rgba(0, 0, 0, 0.07); 
+}
+
+.header__optionsUserInfo {
+  padding: 2rem;
+}
+
+.header__optionsUserProfile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.header__optionsAvatar {
+  background: #838282;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin-bottom: .3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__optionsAvatar p {
+  color: #161822;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.header__optionBtn {
+  background: #161822;
+  padding: .5rem;
+  border-radius: 8px;
+  margin-bottom: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: .2s ease-out;
+}
+
+.header__optionBtn:hover {
+  transform: scale(1.1);
+}
+
+.header__optionBtn p {
+  margin-left: 10px;
+  font-size: .9rem;
 }
 
 .home {
@@ -49,8 +179,43 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 80vh;
+  height: 75vh;
+  position: relative;
 }
+
+.modal {
+  background: linear-gradient(to right bottom, rgba(105, 105, 105, 0.3), rgba(105, 105, 105, 0.1));
+  backdrop-filter: blur(35px);
+  color: #696969;
+  width: 25rem;
+  height: 25rem; 
+  padding: 1rem;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  overflow-y: scroll;
+  box-shadow:
+    0 3.4px 2.7px rgba(0, 0, 0, 0.022),
+    0 8.7px 6.9px rgba(0, 0, 0, 0.031),
+    0 17.7px 14.2px rgba(0, 0, 0, 0.039),
+    0 36.5px 29.2px rgba(0, 0, 0, 0.048),
+    0 100px 80px rgba(0, 0, 0, 0.07); 
+}
+
+.modal::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.modal::-webkit-scrollbar-track {
+  background-color:  transparent;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background-color: #6a0572;
+  border-radius: 5px;
+}
+
+
 
 /* ------------------ SUBPAGE ------------------ */
 
@@ -59,7 +224,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 90vh;
+  height: 85vh;
 }
 
 .quiz {

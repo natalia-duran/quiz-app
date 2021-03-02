@@ -14,21 +14,59 @@
 <body>
     <!-- HEADER -->
     <header class="header">
-        <div id="headerBox" class="header__box">
+        <div id="headerLeft" class="header__left">
             <div id="btnArrowBack">
                 <i class="fas fa-arrow-left"></i>
             </div>
         </div>
-        <div id="headerUser" class="header__user">
+        
+        <!-- <div id="headerUser" class="header__user">
             <div id="btnDelete" class="header__btnDelete">
                 <i class="far fa-trash-alt"></i>
                 <p>Delete my data</p>
             </div>
+        </div> -->
+
+        <div id="headerRight" class="header__right">
+            <div id="btnMoreOptions" class="header__btnMoreOptions">
+                <i class="fas fa-ellipsis-v"></i>
+            </div>
         </div>
+
+        <div id="userMoreOptions" class="header__optionsContainer invisible">
+            <div class="header__optionswhiteShadow"></div>
+        
+            <div class="header__optionsGlassEffect">
+                <div class="header__optionsUserInfo">
+                    <div class="header__optionsUserProfile">
+                        <div class="header__optionsAvatar">
+                            <p>Aa</p>
+                        </div>
+                        <div id="userName"></div>
+                        <div id="userRole"></div>
+                    </div>
+
+                    <div class="header__optionBtn">
+                        <i class="far fa-eye"></i>
+                        <p>Check my data</p>
+                    </div>
+
+                    <div id="btnDeleteData" class="header__optionBtn">
+                        <i class="far fa-trash-alt"></i>
+                        <p>Delete my data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </header>
 
     <!-- MAIN CONTENT -->
     <main class="home">
+        <div class="modal invisible">
+            <div></div>
+        </div>
+
         <div id="greetUser"></div>
 
         <div id="askNameBox" class="invisible">
@@ -45,9 +83,9 @@
     <footer class="footer">
         <p class="footer__txt">Made with <i class="fas fa-heart"></i> by Natalia Duran</p>
         <ul class="footer__links">
-            <li><a href="#" class="footer__rrssIcon"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#" class="footer__rrssIcon"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="#" class="footer__rrssIcon"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="https://github.com/natalia-duran" target="_blank" class="footer__rrssIcon"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://stackoverflow.com/users/12067876/natalia-duran" target="_blank" class="footer__rrssIcon"><i class="fab fa-stack-overflow"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/natalia-duran/?locale=en_US" target="_blank" class="footer__rrssIcon"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>
     </footer>
 
