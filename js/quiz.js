@@ -13,10 +13,7 @@ $(document).ready(function(){
     const btnNext = $('#btnNext');
     const btnArrowBack = $('#btnArrowBack');
 
-    let currentQuestion = {};
     let questionsCounter = 0;
-    // let selectedAnswers;
-
     let backendAnswers = [];
     let frontendAnswers = [];
     let fullstackAnswers = [];

@@ -4,7 +4,7 @@ $(document).ready(function(){
     // ------------------------------------ variables 
     
     let currentUser;
-    let visibleMoreoptions = false;
+    let moreOptionsVisible = false;
     const modal = $('#modal');
     const btnCloseModal = $('#btnCloseModal');
     const modalName = $('#modalName');
@@ -12,14 +12,12 @@ $(document).ready(function(){
     const modalDescription = $('#modalDescription');
     const greetUser = $('#greetUser');
     const headerLeft = $('#headerLeft');
-    //const headerUser = $('#headerUser');
     const headerRight = $('#headerRight');
     const avatarInitials = $('#avatarInitials');
     const userMoreOptions = $('#userMoreOptions');
     const btnMoreOptions = $('#btnMoreOptions');
     const btnCheckData = $('#btnCheckData');
     const btnDeleteData = $('#btnDeleteData');
-    // const btnDelete = $('#btnDelete');
     const userName = $('#userName');
     const userRole = $('#userRole');
     const askNameBox = $('#askNameBox');
@@ -76,7 +74,6 @@ $(document).ready(function(){
 
         btn.click(goToAskUserName);
         headerLeft.hide();
-        // headerUser.hide();
         headerRight.hide();
     }
 
@@ -84,7 +81,7 @@ $(document).ready(function(){
 
         const capitalizedName = capitalizeFirstLetter(name);
 
-        const title = $('<h1></h1>').text(`${capitalizedName}, welcome back!`); 
+        const title = $('<h1></h1>').html(`<span>${capitalizedName},</span> welcome back!`); 
         const subtitle = $('<p></p>').text('Wanna take the quiz again?'); 
         const btn = $('<button></button>').text(`Let's do this!`); 
         btn.attr({
@@ -99,10 +96,8 @@ $(document).ready(function(){
         btn.click(() => window.location.href = "views/quiz.html");
         btnCheckData.click(() => openCheckData());
         btnDeleteData.click(() => currentUser.deleteMyData());
-        // btnDelete.click(() => currentUser.deleteMyData());
 
         headerLeft.hide();
-        // headerUser.show();
         headerRight.show();
 
         const initials = getUserInitials(name);
@@ -135,8 +130,8 @@ $(document).ready(function(){
     }
 
     function showMoreOptions() {
-        visibleMoreoptions = !visibleMoreoptions;
-        visibleMoreoptions ? userMoreOptions.fadeIn('fast') : userMoreOptions.fadeOut('fast');
+        moreOptionsVisible = !moreOptionsVisible;
+        moreOptionsVisible ? userMoreOptions.fadeIn('fast') : userMoreOptions.fadeOut('fast');
     }
 
     function getUserInitials(name) {
@@ -148,8 +143,10 @@ $(document).ready(function(){
     }
 
     function capitalizeFirstLetter(str) {
-        const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
-        return capitalized;
+        let userName = str.trim(); 
+        let words = userName.split(" ");
+        let capitalizedWords = words.map((word) => word[0].toUpperCase() + word.substring(1)).join(' ');
+        return capitalizedWords;
     }
 
     function openCheckData() {

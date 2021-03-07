@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-    <main class="subpage">
+    <main class="subpage--full">
         <div id="loader" class="loader">
             <div class="loader__animation"></div>
         </div>
@@ -19,6 +19,16 @@
             <h1 id="resultTitle"></h1>  
             <p id="resultTxt" class="result__txt"></p>
             <p id="resultDescription" class="result__description"></p>
+
+            <div id="resultFeedback" class="result__feedback">
+                <div id="feedbackOptions" class="feedback__options">
+                    <p>Was this helpful?</p>
+                    <i class="far fa-smile"></i>
+                    <i class="far fa-meh"></i>
+                    <i class="far fa-frown"></i>
+                </div>
+            </div>
+
             <button id="btnGoBackHome" class="btn btn--small">Go back</button>
         </div>
     </main>
