@@ -68,7 +68,7 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 
-/* ------------------ HEADER MORE OPTIONS MENU ------------------ */
+/* ------------------ HEADER MORE OPTIONS BTN ------------------ */
 
 .header__btnMoreOptions {
   background: #161822;
@@ -183,6 +183,8 @@ body::-webkit-scrollbar-thumb {
   position: relative;
 }
 
+/* ------------------ MODAL ------------------ */
+
 .modal {
   background: linear-gradient(to right bottom, rgba(105, 105, 105, 0.3), rgba(105, 105, 105, 0.1));
   backdrop-filter: blur(35px);
@@ -211,11 +213,40 @@ body::-webkit-scrollbar-thumb {
 }
 
 .modal::-webkit-scrollbar-thumb {
-  background-color: #6a0572;
+  background-color: #696969;
   border-radius: 5px;
 }
 
+.modal__header {
+  display: flex;
+  justify-content: flex-end;
+}
 
+.modal__btnClose {
+  width: 1rem; 
+  height: 1rem;
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .2s ease-out;
+}
+
+.modal__btnClose:hover {
+  background-color: #161822;
+}
+
+.modal__name {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.modal__role {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: .5rem 0;
+}
 
 /* ------------------ SUBPAGE ------------------ */
 
@@ -228,7 +259,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .quiz {
-  width: 35vw;
+  width: 30rem;
 }
 
 .quiz__question {
@@ -270,6 +301,17 @@ body::-webkit-scrollbar-thumb {
 .result__gif {
   width: 120px;
   height: 120px;
+}
+
+.result__txt {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: .5rem 0;
+}
+
+.result__description {
+  width: 25rem;
+  margin: 0 auto;
 }
 
 /* ------------------ BUTTONS ------------------ */

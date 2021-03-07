@@ -39,14 +39,14 @@
             <div class="header__optionsGlassEffect">
                 <div class="header__optionsUserInfo">
                     <div class="header__optionsUserProfile">
-                        <div class="header__optionsAvatar">
-                            <p>Aa</p>
+                        <div id="optionsAvatar" class="header__optionsAvatar">
+                            <p id="avatarInitials"></p>
                         </div>
                         <div id="userName"></div>
                         <div id="userRole"></div>
                     </div>
 
-                    <div class="header__optionBtn">
+                    <div id="btnCheckData" class="header__optionBtn">
                         <i class="far fa-eye"></i>
                         <p>Check my data</p>
                     </div>
@@ -63,8 +63,16 @@
 
     <!-- MAIN CONTENT -->
     <main class="home">
-        <div class="modal invisible">
-            <div></div>
+        <div id="modal" class="modal invisible">
+            <div class="modal__header">
+                <div id="btnCloseModal" class="modal__btnClose">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <div id="modalName" class="modal__name"></div>
+            <div id="modalRole" class="modal__role"></div>
+            <div id="modalDescription"></div>
         </div>
 
         <div id="greetUser"></div>

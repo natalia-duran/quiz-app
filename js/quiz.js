@@ -15,7 +15,7 @@ $(document).ready(function(){
 
     let currentQuestion = {};
     let questionsCounter = 0;
-    let selectedAnswers;
+    // let selectedAnswers;
 
     let backendAnswers = [];
     let frontendAnswers = [];
@@ -130,24 +130,39 @@ $(document).ready(function(){
 
     function processResult(data) {
         const result = getResult();
-        window.localStorage.setItem('RESULT', result);
-        data && checkDataStored(data, 'role', result);  
+        window.localStorage.setItem('RESULT', JSON.stringify(result));
+        if(data) {
+            checkDataStored('description', result.description);
+            checkDataStored('role', result.role);
+        } 
     }
 
     function getResult() {
         if(backendAnswers > frontendAnswers &&  backendAnswers > fullstackAnswers) {
-            return 'Backend Developer';
+            let result = {
+                role: 'Backend Developer',
+                description: 'You probably prefer to work with ideas and data, rather than clients and visual elements and you also may prefer to think through problems and ideas in depth before taking action.'
+            }
+            return result;
         } else if(frontendAnswers > fullstackAnswers) {
-            return 'Frontend Developer';
+            let result = {
+                role: 'Frontend Developer',
+                description: 'Chances are you have an eye for detail and design, therefore you will probably enjoy seeing the results of your work instantly. You will probably also value the freedom to choose among many frameworks, tools, and packages due to the frequent technology updates.'
+            }
+            return result;
         } else {
-            return 'Fullstack Developer';
+             let result = {
+                role: 'Fullstack Developer',
+                description: 'You simply enjoy building things and get involved in the process of creating an app from start to finish. You probably have a passion for knowledge and have developed a great habit of researching different possible solutions for a problem.'
+            }
+            return result;
         }
     }
 
-     function checkDataStored(dataObj, keyName, updatedValue) {
+     function checkDataStored(keyName, updatedValue) {
         const dataStored = JSON.parse(window.localStorage.getItem('USER_DATA'));
-        if(dataObj[keyName]) {
-            const dataAux = {...dataObj};
+        if(dataStored[keyName]) {
+            const dataAux = {...dataStored};
             dataAux[keyName] = updatedValue;
             window.localStorage.removeItem('USER_DATA');
             window.localStorage.setItem('USER_DATA', JSON.stringify(dataAux));

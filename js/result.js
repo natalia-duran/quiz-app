@@ -8,15 +8,17 @@ $(document).ready(function(){
     const resultGif = $('#resultGif');
     const resultTitle = $('#resultTitle');
     const resultTxt = $('#resultTxt');
+    const resultDescription = $('#resultDescription');
     const btnGoBackHome = $('#btnGoBackHome');
-    const savedResult = window.localStorage.getItem('RESULT');
+    const savedResult = JSON.parse(window.localStorage.getItem('RESULT'));
 
     // ------------------------------------ FIRST LOAD 
     
     if(savedResult) {
         getGif('ZdNlmHHr7czumQPvNE');
         resultTitle.text(`Congrats!`);
-        resultTxt.text(`You are a ${savedResult} at heart!`);
+        resultTxt.text(`You are a ${savedResult.role} at heart!`);
+        resultDescription.text(`${savedResult.description}`);
     } else {
         getGif('h2TL9kJUgFoaeuEVR9');
         resultTitle.text(`Sorry`);

@@ -5,14 +5,21 @@ $(document).ready(function(){
     
     let currentUser;
     let visibleMoreoptions = false;
+    const modal = $('#modal');
+    const btnCloseModal = $('#btnCloseModal');
+    const modalName = $('#modalName');
+    const modalRole = $('#modalRole');
+    const modalDescription = $('#modalDescription');
     const greetUser = $('#greetUser');
     const headerLeft = $('#headerLeft');
     //const headerUser = $('#headerUser');
     const headerRight = $('#headerRight');
+    const avatarInitials = $('#avatarInitials');
     const userMoreOptions = $('#userMoreOptions');
     const btnMoreOptions = $('#btnMoreOptions');
+    const btnCheckData = $('#btnCheckData');
     const btnDeleteData = $('#btnDeleteData');
-    const btnDelete = $('#btnDelete');
+    // const btnDelete = $('#btnDelete');
     const userName = $('#userName');
     const userRole = $('#userRole');
     const askNameBox = $('#askNameBox');
@@ -39,6 +46,7 @@ $(document).ready(function(){
 
     btnArrowBack.on('click', goBackHome);
     btnMoreOptions.on('click', showMoreOptions);
+    btnCloseModal.on('click', closeCheckData);
     btnSaveUserName.on('click', goToQuizWithName);
     btnNoUserName.on('click', goToQuizWithoutName);
 
@@ -47,7 +55,7 @@ $(document).ready(function(){
     function greeting(user, data) {
         if(user && user === 'recognized') {
             currentUser = new User(data.name, data.role, data.description);
-            createRecognizedGreeting(greetUser, currentUser.name, currentUser.role);
+            createRecognizedGreeting(greetUser, currentUser.name, currentUser.role, currentUser.description);
         } else {
             createAnonymousGreeting(greetUser);
         }
@@ -72,8 +80,11 @@ $(document).ready(function(){
         headerRight.hide();
     }
 
-    function createRecognizedGreeting(domContainer, name, role) {
-        const title = $('<h1></h1>').text(`${name}, welcome back!`); 
+    function createRecognizedGreeting(domContainer, name, role, description) {
+
+        const capitalizedName = capitalizeFirstLetter(name);
+
+        const title = $('<h1></h1>').text(`${capitalizedName}, welcome back!`); 
         const subtitle = $('<p></p>').text('Wanna take the quiz again?'); 
         const btn = $('<button></button>').text(`Let's do this!`); 
         btn.attr({
@@ -86,15 +97,22 @@ $(document).ready(function(){
         domContainer.append(btn);
 
         btn.click(() => window.location.href = "views/quiz.html");
-        // btnDelete.click(() => currentUser.deleteMyData());
+        btnCheckData.click(() => openCheckData());
         btnDeleteData.click(() => currentUser.deleteMyData());
+        // btnDelete.click(() => currentUser.deleteMyData());
 
         headerLeft.hide();
         // headerUser.show();
         headerRight.show();
 
-        userName.text(`${name}`); 
+        const initials = getUserInitials(name);
+        avatarInitials.text(`${initials}`); 
+        userName.text(`${capitalizedName}`); 
         userRole.text(`${role}`); 
+        
+        modalName.text(`${capitalizedName}`); 
+        modalRole.text(`${role}`); 
+        modalDescription.text(`${description}`); 
     }
 
     // ------------------------------------ FIRST LOAD 
@@ -119,6 +137,27 @@ $(document).ready(function(){
     function showMoreOptions() {
         visibleMoreoptions = !visibleMoreoptions;
         visibleMoreoptions ? userMoreOptions.fadeIn('fast') : userMoreOptions.fadeOut('fast');
+    }
+
+    function getUserInitials(name) {
+        let userName = name.trim(); 
+        let initials = userName.split('', 2); 
+        initials[0] = initials[0].toUpperCase();
+        console.log('initials', initials.join(''));
+        return initials.join('');
+    }
+
+    function capitalizeFirstLetter(str) {
+        const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
+        return capitalized;
+    }
+
+    function openCheckData() {
+        modal.fadeIn('fast');
+    }
+
+    function closeCheckData() {
+        modal.fadeOut('fast');
     }
     
     function goToQuizWithName() {
