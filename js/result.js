@@ -11,6 +11,7 @@ $(document).ready(function(){
     const resultDescription = $('#resultDescription');
     const resultFeedback = $('#resultFeedback');
     const feedbackOptions = $('#feedbackOptions');
+    const allFeedbackIcons = $('#feedbackOptions i');
     const btnGoBackHome = $('#btnGoBackHome');
     const savedResult = JSON.parse(window.localStorage.getItem('RESULT'));
 
@@ -26,6 +27,8 @@ $(document).ready(function(){
         resultTitle.text(`Sorry`);
         resultTxt.text(`Something went wrong`);
     }
+
+    addFeedback(allFeedbackIcons);
 
     // ------------------------------------ events
 
@@ -60,6 +63,18 @@ $(document).ready(function(){
             }
         });
     }  
+
+    function addFeedback(elementsArray) {
+        elementsArray.each((index, element) => {
+            console.log(element);
+            $(element).click(sayThanks);
+        });
+    }
+
+    function sayThanks() {
+        feedbackOptions.remove();
+        resultFeedback.html(`<div>Thank you so much for your feedback!</div>`);
+    }
 
     function goBackHome() {
         window.location.href = "../index.html";
