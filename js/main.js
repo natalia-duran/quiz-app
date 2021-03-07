@@ -30,6 +30,21 @@ $(document).ready(function(){
     const userType = window.localStorage.getItem('USER_TYPE');
     const userData = JSON.parse(window.localStorage.getItem('USER_DATA'));
 
+
+
+    /**
+    * User class.
+    *
+    * @constructor
+    * @param {String} name          - The name.
+    * @param {String} role          - The developer role.
+    * @param {String} description   - The description.
+    *
+    /**
+    * The deleteMyData method.
+    *
+    * @return {Void}
+    */
     function User(name, role = 'No role yet', description = 'No description yet') {
         this.name = name;
         this.role = role;
