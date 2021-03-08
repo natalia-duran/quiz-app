@@ -67,7 +67,6 @@ $(document).ready(function(){
 
     function addFeedback(elementsArray) {
         elementsArray.each((index, element) => {
-            console.log(element);
             $(element).click(sayThanks);
         });
     }

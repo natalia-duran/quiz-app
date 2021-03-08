@@ -153,7 +153,6 @@ $(document).ready(function(){
         let userName = name.trim(); 
         let initials = userName.split('', 2); 
         initials[0] = initials[0].toUpperCase();
-        console.log('initials', initials.join(''));
         return initials.join('');
     }
 
