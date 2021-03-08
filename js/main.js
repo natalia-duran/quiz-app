@@ -1,10 +1,11 @@
 
 $(document).ready(function(){
 
-    // ------------------------------------ variables 
+    // ------------------------------------ variables and object
     
     let currentUser;
     let moreOptionsVisible = false;
+
     const modal = $('#modal');
     const btnCloseModal = $('#btnCloseModal');
     const modalName = $('#modalName');
@@ -29,7 +30,6 @@ $(document).ready(function(){
 
     const userType = window.localStorage.getItem('USER_TYPE');
     const userData = JSON.parse(window.localStorage.getItem('USER_DATA'));
-
 
 
     /**

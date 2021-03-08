@@ -13,6 +13,7 @@ $(document).ready(function(){
     const feedbackOptions = $('#feedbackOptions');
     const allFeedbackIcons = $('#feedbackOptions i');
     const btnGoBackHome = $('#btnGoBackHome');
+    
     const savedResult = JSON.parse(window.localStorage.getItem('RESULT'));
 
     // ------------------------------------ FIRST LOAD 
