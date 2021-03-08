@@ -8,4 +8,4 @@ Si el usuario decide ingresar su nombre, se le habilitará en la página princip
 
 Toda la aplicación esta en inglés y los resultados no están basadas en ningún estudio o teoría científico.  
 
-
+![quiz-app preview](./assets/quiz-app-demo.gif)
